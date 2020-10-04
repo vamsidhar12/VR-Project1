@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-controls-z@^2.0.0/look-controls-z.js"></script>
+    <!-- <script src="libs/aframe.min.js"></script>
+     <script src="libs/aframe.js"></script>-->
+    <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="./libs/tap-to-teleport.js" type="text/javascript"></script>
+</head>
+<body>
+<a-scene>
+    <a-entity id="cameraRig" position="0 1.6 0" >
+        <a-entity id="head" position="0 0 0" camera="userHeight:1.6" look-controls="pointerLockEnabled:true">
+            <a-entity position="0.1 -0.1 0"
+                      touch-listener
+                      teleport-controls=
+                              "cameraRig: #cameraRig;
+             teleportOrigin: #head;
+             startEvents:starttouch;
+             endEvents:endtouch;
+             curveShootingSpeed:15;
+             hitCylinderRadius:1;
+             "
+            >
+            </a-entity>
+            <a-camera look-controls>
+            <a-entity cursor="fuse: true;"
+                      position="0 0 -1"
+                      geometry="primitive: ring; radiusOuter: 0.03; radiusInner: 0.02"
+                      material="color: gray; shader: flat" >
+                <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
+                             fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+                <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+                             fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+            </a-entity>
+            </a-camera>
+        </a-entity>
+    </a-entity>
+
+    <!-- Assets -->
+    <a-assets>
+        <!-- Images -->
+        <img id="land" src="./assets/images/texture.jpg"/>
+        <img id="ceiling" src="./assets/images/ceil.jpg"/>
+        <img id="trim" src="./assets/images/Trim.jpg" />
+        <img id="floor" src="./assets/images/floor.jpg"/>
+        <img id="accentwall" src="./assets/images/accent_wall.jpg"/>
+        <img id="wall" src="./assets/images/wall-side.jpg"/>
+        <img id="scenery" src="./assets/images/scenery.jpg"/>
+        <img id="frscenery" src="./assets/images/scenery_2.jpeg"/>
+        <img id="arnie" src="./assets/images/Arnie.jpeg"/>
+        <img id="quote" src="./assets/images/quote.jpeg"/>
+        <img id="TT" src="./assets/images/TT.jpg"/>
+        <img id="keyboard" src="./assets/images/Keyboard.png"/>
+        <img id="mouse" src="./assets/images/Mouse.jpg"/>
+        <img id="monitor" src="./assets/images/tech.jpeg">
+        <img id="dnd" src="./assets/images/dnd.jpg"/>
+        <img id="covid" src="./assets/images/covid.jpg"/>
+        <img id="black" src="./assets/images/black.jpeg"/>
+        <img id="lysol" src="./assets/images/lysol.jpg"/>
+
+        <!-- objects & models -->
+        <a-asset-item id="couch" src="./assets/gltf%20%20models/Couch/scene.gltf"></a-asset-item>
+        <a-asset-item id="armChair" src="./assets/gltf%20%20models/ArmChair/scene.gltf"></a-asset-item>
+        <a-asset-item id="deskChair" src="./assets/gltf%20%20models/DeskChair/scene.gltf"></a-asset-item>
+        <a-asset-item id="stove" src="./assets/gltf%20%20models/stove/scene.gltf"></a-asset-item>
+        <a-asset-item id="counter" src="./assets/gltf%20%20models/single_counter/scene.gltf"></a-asset-item>
+        <a-asset-item id="paperTowel" src="./assets/gltf%20%20models/papertowel/scene.gltf"></a-asset-item>
+        <a-asset-item id="fridge" src="./assets/gltf%20%20models/fridge/scene.gltf"></a-asset-item>
+
+        <a-asset-item id="microwave-obj" src="./assets/objects/microwave.obj"></a-asset-item>
+        <a-asset-item id="microwave-mtl" src="./assets/objects/microwave.mtl"></a-asset-item>
+        <a-asset-item id="dresser-obj" src="./assets/objects/dresser.obj"></a-asset-item>
+        <a-asset-item id="dresser-mtl" src="./assets/objects/dresser.mtl"></a-asset-item>
+        <a-asset-item id="detector-obj" src="./assets/objects/detector.obj"></a-asset-item>
+        <a-asset-item id="detector-mtl" src="./assets/objects/detector.mtl"></a-asset-item>
+        <a-asset-item id="bed-obj" src="./assets/objects/bed.obj"></a-asset-item>
+        <a-asset-item id="bed-mtl" src="./assets/objects/bed.mtl"></a-asset-item>
+        <a-asset-item id="vent-obj" src="./assets/objects/vent.obj"></a-asset-item>
+        <a-asset-item id="vent-mtl" src="./assets/objects/vent.mtl"></a-asset-item>
+        <a-asset-item id="db-obj" src="./assets/objects/db.obj"></a-asset-item>
+        <a-asset-item id="db-mtl" src="./assets/objects/db.mtl"></a-asset-item>
+        <a-asset-item id="trash-obj" src="./assets/objects/trash.obj"></a-asset-item>
+        <a-asset-item id="trash-mtl" src="./assets/objects/trash.mtl"></a-asset-item>
+        <a-asset-item id="wash-obj" src="./assets/objects/wash.obj"></a-asset-item>
+        <a-asset-item id="wash-mtl" src="./assets/objects/wash.mtl"></a-asset-item>
+        <a-asset-item id="door-obj" src="./assets/objects/door.obj"></a-asset-item>
+        <a-asset-item id="door-mtl" src="./assets/objects/door.mtl"></a-asset-item>
+        <a-asset-item id="speaker-obj" src="./assets/objects/speaker.obj"></a-asset-item>
+        <a-asset-item id="speaker-mtl" src="./assets/objects/speaker.mtl"></a-asset-item>
+        <a-asset-item id="plant-obj" src="./assets/objects/plant.obj"></a-asset-item>
+        <a-asset-item id="plant-mtl" src="./assets/objects/plant.mtl"></a-asset-item>
+        <a-asset-item id="sanitizer-obj" src="./assets/objects/sanitizer.obj"></a-asset-item>
+        <a-asset-item id="sanitizer-mtl" src="./assets/objects/sanitizer.mtl"></a-asset-item>
+        <a-asset-item id="mask-obj" src="./assets/objects/mask.obj"></a-asset-item>
+        <a-asset-item id="mask-mtl" src="./assets/objects/mask.mtl"></a-asset-item>
+        <a-asset-item id="visor-obj" src="./assets/objects/visor.obj"></a-asset-item>
+        <a-asset-item id="visor-mtl" src="./assets/objects/visor.mtl"></a-asset-item>
+        <!-- Videos -->
+        <video id="Tv" src="./assets/videos/10_Most_Powerful_Goals.mp4" autoplay loop="true"></video>
+
+        <!-- Sounds -->
+        <audio id="speaker" src="./assets/sounds/mad_desire.mp3"></audio>
+        <audio id="desktop" src="./assets/sounds/desktop.mp3"></audio>
+    </a-assets>
+
+    <script type="text/javascript">
+        let monitorsOn = false;		// Indicates if computer monitors are on/off
+        let speakerOn = false;      // Indicates if speaker is on/off
+        let dim = false;			// Indicates if lights are dim/not dim
+        let blindsActive = false;	// Indicates if blinds are down/up
+        let lampOn = false;			// Indicates if lamp is on/off
+        let doorOpen = false;       // Indicates if door is open/close
+        let covidMode = true;       // Indicates if covid mode is on/off
+
+        function monitorClick()
+        {
+            let screen = document.getElementById("Screen");
+            let text = document.getElementById("monitorText");
+            let audio = document.getElementById("desktop");
+            if(!monitorsOn)
+            {
+                text.setAttribute('value', 'Turn off monitor');
+                audio.play();
+                screen.setAttribute('material', 'color', 'white');
+                monitorsOn = true;
+            }
+            else
+            {
+                text.setAttribute('value', 'Turn on monitor');
+                screen.setAttribute('material', 'color', 'black');
+                monitorsOn = false;
+            }
+        }
+
+        function speakerClick()
+        {
+            let text = document.getElementById("speakerText");
+            let s = document.getElementById("speaker");
+            if(!speakerOn)
+            {
+                text.setAttribute('value', 'Turn off speaker');
+                speakerOn = true;
+                s.play();
+            }
+            else
+            {
+                text.setAttribute('value', 'Turn on speaker');
+                speakerOn = false;
+                s.pause();
+            }
+        }
+
+        function lampClick()
+        {
+            let lamp = document.querySelector("#lampLight");
+            let text = document.querySelector("#lampText");
+
+            if(!lampOn)
+            {
+                text.setAttribute('value', 'Turn off lamp');
+                lamp.setAttribute('light', 'intensity', '0.6');
+                lampOn = true;
+            }
+            else
+            {
+                text.setAttribute('value', 'Turn on lamp');
+                lamp.setAttribute('light', 'intensity', '0');
+                lampOn = false;
+            }
+        }
+
+        function dimmerClick()
+        {
+            let light = document.querySelector("#insideLight");
+            let text = document.querySelector("#dimmerText");
+
+            if(!dim)
+            {
+                text.setAttribute('value', 'Turn on Lights');
+                light.setAttribute('light', 'color', '#1c0f62');
+                dim = true;
+            }
+            else
+            {
+                light.setAttribute('light', 'color', '#BBB');
+                text.setAttribute('value', 'Turn off lights');
+                dim = false;
+            }
+        }
+
+        function blindsClick()
+        {
+            let blinds = document.getElementById("blinds");
+            let text = document.getElementById("blindsText");
+            let light = document.getElementById("sunlight");
+            if(!blindsActive)
+            {
+                text.setAttribute('value', 'Close Blinds');
+                blinds.setAttribute('material', 'opacity', '0.10');
+                light.setAttribute('light', 'intensity', '0.6');
+                blindsActive = true;
+            }
+            else
+            {
+                text.setAttribute('value', 'Open Blinds');
+                blindsActive = false;
+                light.setAttribute('light', 'intensity', '0.1');
+                blinds.setAttribute('material', 'opacity', '0.90');
+            }
+
+        }
+
+        function doorClick()
+        {
+            let door = document.getElementById("door");
+            let text = document.getElementById("doorText");
+
+            if (!doorOpen) {
+                text.setAttribute('value', 'Close the Door');
+                door.setAttribute('position', '-6.5 2.6 -18.5');
+                door.setAttribute('rotation', '270 -135 0');
+                doorOpen = true;
+            } else {
+                text.setAttribute('value', 'Open the Door');
+                door.setAttribute('position', '-4 2.5 -19.5');
+                door.setAttribute('rotation', '270 0 0');
+                doorOpen = false;
+            }
+        }
+
+        function covid()
+        {
+            let text = document.getElementById("covidText");
+            let cb = document.getElementById("covidButton");
+            let element, i;
+            element =  document.querySelectorAll(".covid");
+            if (!covidMode) {
+                text.setAttribute('value', 'COVID Mode');
+                cb.setAttribute('color', 'red');
+                for (i = 0; i < element.length; i++) {
+                    element[i].setAttribute('visible', 'true');
+                }
+                covidMode = true;
+            } else {
+                text.setAttribute('value', 'Normal Mode');
+                cb.setAttribute('color', 'green');
+                for (i = 0; i < element.length; i++) {
+                    element[i].setAttribute('visible', 'false');
+                }
+                covidMode = false;
+            }
+        }
+    </script>
+
+    <a-sky color="#87CEEB"></a-sky>
+
+    <!-- Inside Ambient Light -->
+    <a-entity id="insideLight" light="color:#BBB;type:ambient"></a-entity>
+
+    <!-- Outside Point Light-->
+    <a-entity id="sunlight" light="type:point;intensity:0.1;castShadow:true" position="-50 14 -17"></a-entity>
+
+    <!-- Light Dimmer -->
+    <a-entity onclick="dimmerClick()" position="-20 4 -14" rotation="0 90 0">
+        <a-text id="dimmerText" value="Dim Lights" align="center" color="#fff" position="0 1.25 0.1" scale="1.5 1.5 1.5"></a-text>
+        <a-box position="0 0.375 0" width="0.5" height="0.75" depth="0.1" color="white"></a-box>
+        <a-cylinder position="0 0.4 0.1" rotation="90 0 0" radius="0.15" height="0.1" color="yellow"></a-cylinder>
+    </a-entity>
+
+    <!--Ceiling -->
+    <a-plane position="0 10 0" rotation="90 0 0" width="40" height="40" shadow="" material="side:double; src: #ceiling; repeat: 10 10"></a-plane>
+
+    <!-- floor -->
+    <a-plane position="0 0 0" rotation="-90 0 0" width="40" height="40" shadow="" material="side:double; src: #floor; repeat: 10 15"></a-plane>
+
+    <!-- Walls -->
+    <a-plane wall position="0 5 -20" width="40" height="10" color="white" src="#wall" material="side:double"></a-plane> <!-- front -->
+    <a-plane wall position="0 5 20" width="40" height="10" material="side:double; src: #wall"></a-plane> <!-- back -->
+    <a-plane wall position="-20 5 0" rotation="0 90 0" width="40" height="10" src="#accentwall" material="side:double"></a-plane> <!-- left -->
+    <a-plane wall position="20 5 0" rotation="0 90 0" width="40" height="10" color="white" src="#wall" material="side:double"></a-plane> <!-- right -->
+
+    <!-- Trim -->
+    <a-box position="0 0.25 -19.75" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="0 9.75 -19.75" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="19.75 0.25 0" rotation="0 90 0" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="19.75 9.75 0" rotation="0 90 0" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="0 0.25 +19.75" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="0 9.75 +19.75" width="40" height="0.5" depth="0.5" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+
+    <!-- Window -->
+    <a-entity position="-20 5 -10">
+        <a-box position="0 0 0" height="3.4" width="0.3" depth="5.5" color="white"></a-box>
+        <a-box position="0.25 0 0" rotation="0 90 0" height="3" width="5" depth="0.1" material="opacity: 0.7; side:double; src: #scenery; shader: flat"></a-box>
+    </a-entity>
+
+    <!-- Blinds -->
+    <a-entity>
+        <a-box id="blinds" position="-19.70 5 -10" rotation="0 90 0" color="white" width="5.6" height="3.5" depth="0.1" material="side: double; opacity: 0.95" shadow=""></a-box>
+    </a-entity>
+
+    <!-- Blinds Button -->
+    <a-entity onclick="blindsClick()" position="-19.90 4 -6" rotation="0 90 0">
+        <a-text id="blindsText" value="Control Blinds" align="center" color="#fff" position="0 1.25 0.1" scale="1.5 1.5 1.5"></a-text>
+        <a-box position="0 0.375 0" width="0.5" height="0.75" depth="0.1" color="white"></a-box>
+        <a-cylinder position="0 0.4 0.1" rotation="90 0 0" radius="0.15" height="0.1" color="red"></a-cylinder>
+    </a-entity>
+
+    <!-- front door scenery -->
+    <a-plane position="-4.3 3 -19.5" width="3.2" height="5" color="white" material="src: #frscenery"></a-plane> <!-- front door scenery-->
+    <a-box position="-5.7 2.8 -19.5" width="0.35" height="5.6" depth="0.05" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="-2.8 2.8 -19.5" width="0.35" height="5.6" depth="0.05" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+    <a-box position="-4.25 5.65 -19.5"  width="3.3" height="0.5" depth="0.05" shadow="" material="side:double; src: #trim; repeat: 10 1"></a-box>
+
+    <!-- Television Screen -->
+    <a-box position="-19.90 5 9" rotation="0 90 0" scale="7.2 4.4 .05" color="#000"></a-box>
+    <a-plane event-set__click="src: ./assets/videos/10_Most_Powerful_Goals.mp4" position="-19.85 5 9" rotation="0 90 0" height="3.8" width="6.8"  src= "#black"></a-plane>
+
+    <!-- Canvas -->
+    <a-entity position="19.75 3 17">
+        <a-box position="0 3 0" rotation="0 90 0" width="5" height="3.5" depth="0.1" material="src: #arnie"></a-box>
+    </a-entity>
+    <a-entity position="19.75 3 11" rotation="0 90 0" scale="1.2 1 1">
+        <a-box position="0 3 0" width="4" height="2.5" depth="0.1" material="src: #quote"></a-box>
+    </a-entity>
+    <a-entity position="0 3 19.80" rotation="0 0 0" scale="1.2 1 1">
+        <a-box position="0 3 0" width="6" height="4.5" depth="0.2" material="src: #TT"></a-box>
+    </a-entity>
+    <a-entity position="10 2.6 19.5" rotation="0 0 0" scale="1 1 1">
+        <a-box position="0.25 1 0" width="2" height="1.5" depth="0.1" material="src: #dnd"></a-box>
+    </a-entity>
+    <a-entity class="covid" position="19.65 0 5" rotation="0 90 0" scale="1 1 1">
+        <a-box position="0 4 0" width="3" height="2" depth="0.1" material="src: #covid"></a-box>
+    </a-entity>
+
+    <!-- Couch -->
+    <a-entity position="-7 0 9.5" rotation="0 -90 0" gltf-model="#couch" scale="0.011 0.016 0.015"></a-entity>
+
+    <!-- Chair -->
+    <a-entity position="-9 0 3.5" rotation="0 -45 0" gltf-model="#armChair" scale=".004 .004 .004"></a-entity>
+
+    <!-- Table -->
+    <a-entity position="-15 0 7">
+        <!-- Top -->
+        <a-box position="0 1 0" width="3.5" height="0.2" depth="10" color="gray" material="opacity: 0.5"></a-box>
+        <!-- Legs -->
+        <a-box position="1.65 0.5 4.9" width="0.25" height="1" depth="0.25" color="black"></a-box>
+        <a-box position="-1.65 0.5 4.9" width="0.25" height="1" depth="0.25" color="black"></a-box>
+        <a-box position="1.65 0.5 -4.9" width="0.25" height="1" depth="0.25" color="black"></a-box>
+        <a-box position="-1.65 0.5 -4.9" width="0.25" height="1" depth="0.25" color="black"></a-box>
+        <!-- Top Frame -->
+        <a-box position="1.80 1 0" width="0.1" height="0.2" depth="10.2" color="black"></a-box>
+        <a-box position="-1.80 1 0" width="0.1" height="0.2" depth="10.2" color="black"></a-box>
+        <a-box position="0 1 -5.05" width="3.7" height="0.2" depth="0.1" color="black"></a-box>
+        <a-box position="0 1 5.05" width="3.7" height="0.2" depth="0.1" color="black"></a-box>
+    </a-entity>
+
+    <!-- End Table -->
+    <a-entity position="-7 0 17.25">
+        <!-- Top -->
+        <a-box position="0 1.5 0" width="4" height="0.2" depth="4" color="gray" material="opacity: 0.5"></a-box>
+        <!-- Legs -->
+        <a-box position="1.9 0.75 1.9" width="0.25" height="1.5" depth="0.25" color="black"></a-box>
+        <a-box position="1.9 0.75 -1.9" width="0.25" height="1.5" depth="0.25" color="black"></a-box>
+        <a-box position="-1.9 0.75 1.9" width="0.25" height="1.5" depth="0.25" color="black"></a-box>
+        <a-box position="-1.9 0.75 -1.9" width="0.25" height="1.5" depth="0.25" color="black"></a-box>
+        <!-- Top Frame -->
+        <a-box position="-2.05 1.5 0" width="0.1" height="0.2" depth="4.2" color="black"></a-box>
+        <a-box position="2.05 1.5 0" width="0.1" height="0.2" depth="4.2" color="black"></a-box>
+        <a-box position="0 1.5 2.05" width="4.2" height="0.2" depth="0.1" color="black"></a-box>
+        <a-box position="0 1.5 -2.05" width="4.2" height="0.2" depth="0.1" color="black"></a-box>
+    </a-entity>
+
+    <!-- Lamp -->
+    <a-entity onclick="lampClick()" position="-7 1.6 17.25" rotation="0 90 0">
+        <a-text id="lampText" value="Turn on lamp" align="center" color="#fff" rotation="0 90 0" position="0 3 0" scale="1.5 1.5 1.5"></a-text>
+        <!-- Base -->
+        <a-box position="0 0.1 0" width="1" height="0.2" depth="0.5" color="grey"></a-box>
+        <a-box position="0 1 0" width="0.2" height="1.5" depth="0.1" color="grey"></a-box>
+        <!-- Lamp Shade -->
+        <a-plane position="0 1.75 0.375" width="1.5" height="1" material="side: double; opacity: 0.95"></a-plane>
+        <a-plane position="0 1.75 -0.375" width="1.5" height="1" material="side: double; opacity: 0.95"></a-plane>
+        <a-plane position="-0.75 1.75 0" rotation="0 90 0" width="0.75" height="1" material="side: double; opacity: 0.95"></a-plane>
+        <a-plane position="0.75 1.75 0" rotation="0 90 0" width="0.75" height="1" material="side: double; opacity: 0.95"></a-plane>
+        <a-entity id="lampLight" position="0 1.75 0" light="type: point; intensity: 0"></a-entity>
+    </a-entity>
+
+    <!-- Desktop Monitors -->
+    <a-entity onclick="monitorClick()" position="18 2.15 -17.5" rotation="0 -90 0">
+        <a-text id="monitorText" value="Turn on the Monitor" align="center" color="#FFF" position="0 2.25 -1.5" scale="1 1 1"></a-text>
+        <a-entity>
+            <a-box width="1" height="0.05" depth="0.3" color="#232323"></a-box>
+            <a-box id="Screen" position="0 1s 0.08" width="2.15" height="1.4" depth="0.02" color="black" material="src: #monitor; shader: flat"></a-box>
+        </a-entity>
+    </a-entity>
+
+    <!-- CPU -->
+    <a-entity position="17 0 -15" rotation="0 -90 0">
+        <a-box position="0 1.25 0" width="1" height="1.25" depth="2.25" color="black"></a-box>
+        <a-box position="0 0.375 0" width="1" height="0.5" depth="2.25" color="#0f0f0f"></a-box>
+        <a-plane position="0 1.5 1.15" width="0.75" height="0.2" color="#0f0f0f"></a-plane>
+        <a-circle position="-0.3 1.75 1.15" radius="0.05" color="red"></a-circle>
+        <a-circle position="-0.2 1.75 1.15" radius="0.03" color="orange"></a-circle>
+        <a-circle position="-0.1 1.75 1.15" radius="0.03" color="orange"></a-circle>
+    </a-entity>
+
+    <!-- Desk -->
+    <a-entity position="17.65 0 -16" rotation="0 -90 0">
+        <!-- Top -->
+        <a-box position="0 2 0" width="6" height="0.2" depth="3.5" color="gray" material="opacity: 0.5"></a-box>
+        <!-- Legs -->
+        <a-box position="-2.7 1 -1.65" width="0.25" height="2" depth="0.25" color="black"></a-box>
+        <a-box position="-2.7 1 1.65" width="0.25" height="2" depth="0.25" color="black"></a-box>
+        <a-box position="1.9 1 -1.65" width="0.25" height="2" depth="0.25" color="black"></a-box>
+        <a-box position="1.9 1 1.65" width="0.25" height="2" depth="0.25" color="black"></a-box>
+        <!-- Top Frame -->
+        <a-box position="0.05 2 -1.75" width="6.1" height="0.25" depth="0.1" color="black"></a-box>
+        <a-box position="0.05 2 1.8" width="6.1" height="0.25" depth="0.1" color="black"></a-box>
+        <a-box position="-3.05 2 0.05" width="0.1" height="0.25" depth="3.6" color="black"></a-box>
+        <a-box position="3.05 2 0.05" width="0.1" height="0.25" depth="3.6" color="black"></a-box>
+    </a-entity>
+
+    <!-- Desk Chair -->
+    <a-entity position="11 0 -17" rotation="0 270 0" gltf-model="#deskChair" scale="0.038 0.03 0.038"></a-entity>
+
+    <!-- Keyboard -->
+    <a-entity position="16.5 2.15 -17.5" rotation="0 -90 0">
+        <a-box width="2" height="0.1" depth="1" material="src: #keyboard"></a-box>
+    </a-entity>
+
+    <!-- Mouse -->
+    <a-entity position="17.5 1.65 -16" scale="0.2 0.2 0.2">
+        <a-sphere scale="1.7 1 1" position="0 2 0" material="src: #mouse" shadow="" geometry="thetaLength:50;phiLength:180;primitive:sphere"></a-sphere>
+        <a-sphere scale="1.7 1 1" position="0 2 0" rotation="0 180 0" material="src: #mouse" shadow="" geometry="thetaLength:50;phiLength:180;primitive:sphere"></a-sphere>
+    </a-entity>
+
+    <!-- Stove/Burner -->
+    <a-gltf-model src="assets/stove/scene.gltf" scale="0.7 0.7 0.7" rotation="0 -90 0" material=""
+                  position="34.5 0 -40" gltf-model="./assets/gltf%20%20models/stove/scene.gltf"></a-gltf-model>
+
+    <!-- Counters -->
+    <a-gltf-model src="./assets/gltf%20%20models/single_counter/scene.gltf" position="19.25 0 1.65" rotation="0 180 0"
+                  scale="0.02 0.0225 0.02" gltf-model="./assets/gltf%20%20models/single_counter/scene.gltf"></a-gltf-model>
+
+    <a-gltf-model src="./assets/gltf%20%20models/single_counter/scene.gltf" position="19.25 0 -2.75" rotation="0 180 0"
+                  scale="0.02 0.0225 0.02" gltf-model="./assets/gltf%20%20models/single_counter/scene.gltf"></a-gltf-model>
+
+    <a-gltf-model src="./assets/gltf%20%20models/single_counter/scene.gltf" position="19.25 0 -4.5" rotation="0 180 0"
+                  scale="0.02 0.0225 0.02" gltf-model="./assets/gltf%20%20models/single_counter/scene.gltf"></a-gltf-model>
+
+    <!-- Microwave -->
+    <a-entity position="18.5 2.3 -3" obj-model="obj: #microwave-obj; mtl: #microwave-mtl" rotation="0 -60 0" scale="0.045 0.045 0.045"></a-entity>
+
+    <!-- Fridge -->
+    <a-gltf-model src="./assets/fridge/scene.gltf" position="5 2 -18.6"
+                  rotation="0 -90 0" scale="0.5 0.5 0.5" gltf-model="./assets/gltf%20%20models/fridge/scene.gltf"></a-gltf-model>
+
+    <!-- smoke_detector -->
+    <a-entity position="3 9 -19.5" obj-model="obj: #detector-obj; mtl: #detector-mtl" rotation="90 0 0" scale="0.5 0.5 0.5"></a-entity>
+
+    <!-- air vent -->
+    <a-entity position="13.5 7 -19.5" obj-model="obj: #vent-obj; mtl: #vent-mtl" rotation="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+    <a-entity position="-13.5 7 19.5" obj-model="obj: #vent-obj; mtl: #vent-mtl" rotation="0 180 0" scale="0.01 0.01 0.01"></a-entity>
+
+    <!-- Dresser -->
+    <a-entity position="-12 1 -18.25" rotation="0 -90 0" obj-model="obj: #dresser-obj; mtl: #dresser-mtl" scale="1 1 1"></a-entity>
+
+    <!-- Bed -->
+    <a-entity position="-15.7 0 -15" obj-model="obj: #bed-obj; mtl: #bed-mtl" rotation="0 -37.5 0" scale="0.0035 0.0035 0.0030"></a-entity>
+
+    <!-- Yoga mat -->
+    <a-plane position="16.5 0.05 15" rotation="-90 0 0" width="6" height="6" color = "black" shadow="" material="side:double; repeat: 10 15"></a-plane>
+
+    <!-- Speaker -->
+    <a-entity id="speakers" onclick="speakerClick()" position="17 0 10" obj-model="obj: #speaker-obj; mtl: #speaker-mtl" rotation="0 -90 0" scale="0.0065 0.0055 0.0065"></a-entity>
+    <a-text id="speakerText" value="Turn on the speaker" align="center" color="#FFF" rotation="0 -90 0" position="17.2 1.8 10" scale="1 1 1"></a-text>
+
+    <!-- Dumbbells -->
+    <a-entity position="18 0 19" obj-model="obj: #db-obj; mtl: #db-mtl" rotation="0 0 0" scale="0.05 0.08 0.05"></a-entity>
+    <a-entity position="16 0 19" obj-model="obj: #db-obj; mtl: #db-mtl" rotation="0 0 0" scale="0.05 0.08 0.05"></a-entity>
+
+    <!-- Trash -->
+    <a-entity position="7 0 -19" obj-model="obj: #trash-obj; mtl: #trash-mtl" rotation="0 0 0" scale="0.005 0.005 0.005"></a-entity>
+
+    <!-- Hand Wash Area -->
+    <a-entity position="18.25 0 5" obj-model="obj: #wash-obj; mtl: #wash-mtl" rotation="0 180 0" scale="0.08 0.07 0.07"></a-entity>
+
+    <!-- Door -->
+    <a-entity id="door" onclick="doorClick()" position="-4 2.5 -19.5" obj-model="obj: #door-obj; mtl: #door-mtl" rotation="270 0 0" scale="0.030 0.025 0.024"></a-entity>
+    <a-text id="doorText" value="Open the door" align="center" color="#FFF" rotation="0 0 0" position="-4 6.2 -19.5" scale="1 1 1"></a-text>
+
+    <!-- Back Door -->
+    <a-entity position="10 2.6 19.5" obj-model="obj: #door-obj; mtl: #door-mtl" rotation="270 180 0" scale="0.03 0.025 0.024"></a-entity>
+
+    <!-- Plant -->
+    <a-entity position="-15 1.3 8.5" obj-model="obj: #plant-obj; mtl: #plant-mtl" rotation="0 0 0" scale="0.25 0.25 0.25"></a-entity>
+
+
+
+
+    <!-- ************************************ COVID Stuff ************************************ -->
+    <a-entity onclick="covid()" position="10 3 -19.95" rotation="0 0 0">
+        <a-text id="covidText" value="COVID Mode" align="center" color="#fff" position="0 1.25 0.1" scale="1.5 1.5 1.5"></a-text>
+        <a-box position="0 0.375 0" width="0.75" height="0.75" depth="0.1" color="white"></a-box>
+        <a-box id="covidButton" position="0 0.375 0" width="0.5" height="0.5" depth="0.15" color="red"></a-box>
+        <!--<a-cylinder position="0 0.4 0.1" rotation="90 0 0" radius="0.15" height="0.1" color="yellow"></a-cylinder>-->
+    </a-entity>
+
+    <!-- Sanitizer_Table -->
+    <a-entity class="covid" position="-15 1.3 7" obj-model="obj: #sanitizer-obj; mtl: #sanitizer-mtl" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+
+    <!-- Sanitizer_Kitchen -->
+    <a-entity class="covid" position="18.5 2.35 4.4" obj-model="obj: #sanitizer-obj; mtl: #sanitizer-mtl" rotation="0 90 0" scale="0.2 0.2 0.2"></a-entity>
+
+    <!-- Sanitizer_Bed-->
+    <a-entity class="covid" position="-12 1.85 -18.5" obj-model="obj: #sanitizer-obj; mtl: #sanitizer-mtl" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+
+    <!-- Mask_Table -->
+    <a-entity class="covid" position="-14 1.3 6" obj-model="obj: #mask-obj; mtl: #mask-mtl" rotation="45 0 0" scale="0.03 0.03 0.03"></a-entity>
+
+    <!-- Mask_Desktop-->
+    <a-entity class="covid" class="covid" position="16.5 2.25 -14.5" obj-model="obj: #mask-obj; mtl: #mask-mtl" rotation="45 0 0" scale="0.03 0.03 0.03"></a-entity>
+
+    <!-- Visor-->
+    <a-entity class="covid" position="-11 -0.2 -22.3" obj-model="obj: #visor-obj; mtl: #visor-mtl" rotation="60 0 0" scale="0.3 0.3 0.3"></a-entity>
+
+    <!-- Lysol_Table -->
+    <a-cylinder class="covid" position="-15 1.75 6" radius="0.2" height="1" src="#lysol" shadow></a-cylinder>
+
+    <!-- Lysol_Mat -->
+    <a-cylinder class="covid" position="15 0.5 19" radius="0.2" height="1" src="#lysol" shadow></a-cylinder>
+
+    <!-- Lysol_Desktop -->
+    <a-cylinder class="covid" position="17.25 2.75 -14" radius="0.2" height="1" src="#lysol" shadow></a-cylinder>
+
+    <!-- Bounty Napkin Table-->
+    <a-entity class="covid" position="-15 1.3 7.5" rotation="0 0 0" gltf-model="#paperTowel" scale="0.03 0.05 0.03"></a-entity>
+
+    <!-- Bounty Napkins Desktop-->
+    <a-entity class="covid" position="17 2.25 -13.4" rotation="0 0 0" gltf-model="#paperTowel" scale="0.03 0.05 0.03"></a-entity>
+
+</a-scene>
+</body>
+</html>

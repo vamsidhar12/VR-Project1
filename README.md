@@ -17,8 +17,9 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 * [Source Code](https://github.com/vamsidhar12/VR-Project1/blob/main/index.html)
 * [Assets](https://github.com/vamsidhar12/VR-Project1/tree/main/assets)
 * [libs](https://github.com/vamsidhar12/VR-Project1/tree/main/libs)
+* [images](https://github.com/vamsidhar12/VR-Project1/tree/main/img)
 
-<p align="center"><strong> Project Screenshots </strong>
+## <p align="center"><strong> Project Screenshots </strong>
 
 <img src="./img/Room.png" width= "100%"/> 
 
@@ -27,7 +28,7 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 <img src="./img/Room_3.png" width="400" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/Room_4.png" width="400" height="300"/>
 </p> 
 
-## This project includes
+## Project includes
 
 - 20+ Models/Objects (Excluding 7+ custom created objects/models).
 - 20 Images, 2 Audio Clips and 1 Video.
@@ -57,16 +58,36 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 
 
 #### Objects/Models used:
-* [Fridge & Trash](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img1.png)
-* [Desktop Setup and Chair](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img2.png)
-* [Kitchen Area: Counters, Burner, Microwave and Wash Area](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img3.png)
-* [Workout Space: Dumbbells, Yogamat and Music System](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img4.png)
-* [Living Space: Couch, chair and a table](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img5.png)
-* [Wall mounted Television](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img6.png)
-* [Bed Space: Bed and a drawer](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img7.png)
-* [Window](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img8.png)
-* [Main Door and a smoke detector](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img9.png)
-* [Vent and an end table](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img10.png)
+
+* **Fridge & Trash**
+  <img src="./img/img1.png"/>
+  
+* **Desktop Setup and Chair**
+  <img src="./img/img2.png"/>
+  
+* **Kitchen Area: Counters, Burner, Microwave and Wash Area**
+  <img src="./img/img3.png"/>
+  
+* **Workout Space: Dumbbells, Yogamat and Music System**
+  <img src="./img/img4.png"/>
+
+* **Living Space: Couch, chair and a table**
+  <img src="./img/img5.png"/>
+  
+* **Wall mounted Television**
+  <img src="./img/img6.png"/>
+  
+* **Bed Space: Bed and a drawer**
+  <img src="./img/img7.png"/>
+  
+* **Window**
+  <img src="./img/img8.png"/>
+  
+* **Main Door and a smoke detector**
+  <img src="./img/img9.png"/>
+  
+* **Vent, Lamp and an end table**
+  <img src="./img/img10.png"/>
 
 ## Skillset/Technilogy Used
 

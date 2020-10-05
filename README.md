@@ -20,8 +20,9 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 
 <p align="center"><strong> Project Screenshots </strong>
 
-<img src="./img/Room.png" width= "100%"/> 
-<img src="./img/Room_1.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp <img src="./img/Room_2.png" width="400" height="300" style="margin: 50px 20px"/> <img src="./img/Room_3.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp <img src="./img/Room_4.png" width="400" height="300" style="margin: 50px 20px"/></p>
+<img src="./img/Room.png" width= "100%"/> <br/>
+<img src="./img/Room_1.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src="./img/Room_2.png" width="400" height="300" style="margin: 50px 20px"/> <br/>
+<img src="./img/Room_3.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src="./img/Room_4.png" width="400" height="300" style="margin: 50px 20px"/></p> <br/>
 
 ## This project includes
 

@@ -22,9 +22,10 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 
 <img src="./img/Room.png" width= "100%"/> 
 
-<img src="./img/Room_1.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/Room_2.png" width="400" height="300" style="margin: 50px 20px"/> 
+<img src="./img/Room_1.png" width="400" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/Room_2.png" width="400" height="300"/> 
 
-<img src="./img/Room_3.png" width="400" height="300" style="margin: 50px 20px"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/Room_4.png" width="400" height="300" style="margin: 50px 20px"/></p> <br/>
+<img src="./img/Room_3.png" width="400" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="./img/Room_4.png" width="400" height="300"/>
+</p> 
 
 ## This project includes
 
@@ -38,15 +39,34 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 
 ## Interactable Objects/Models
 
-1. Door
-2. Desktop
-3. Blinds
-4. Speaker
-5. Television
-6. Lamp
-7. Lights
-8. COVID Mode
+1. Door (Hover on the door to open/close)
+2. Desktop (Hover on the Desktop to turn on/off)
+3. Blinds (Click the blinds button to open/close)
+4. Speaker (Hover on the speaker to turn on/off)
+5. Television (Hover on the television to turn on)
+6. Lamp (Hover on the lamp to turn on/off)
+7. Lights (Click the lights button to turn on/off)
+8. COVID Mode (Click the COVID button to switch between COVID and Normal mode)
 
+
+## COVID vs Normal Mode:
+
+<p align="center">
+<img src="./img/COVID_1.jpg"/> <img src="./img/COVID_2.jpg"/> <img src="./img/COVID_3.jpg"/> <img src="./img/COVID_4.jpg"/>
+</p>
+
+
+#### Objects/Models used:
+* [Fridge & Trash](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img1.png)
+* [Desktop Setup and Chair](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img2.png)
+* [Kitchen Area: Counters, Burner, Microwave and Wash Area](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img3.png)
+* [Workout Space: Dumbbells, Yogamat and Music System](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img4.png)
+* [Living Space: Couch, chair and a table](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img5.png)
+* [Wall mounted Television](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img6.png)
+* [Bed Space: Bed and a drawer](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img7.png)
+* [Window](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img8.png)
+* [Main Door and a smoke detector](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img9.png)
+* [Vent and an end table](https://github.com/vamsidhar12/VR-Project1/blob/main/img/img10.png)
 
 ## Skillset/Technilogy Used
 

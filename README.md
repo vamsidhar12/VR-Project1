@@ -20,9 +20,9 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 * [Demo Video](https://github.com/vamsidhar12/VR-Project1/blob/main/Demo.mp4)
 
 <hr/>
-<p align="center">
+
 [![Demo Video](https://img.youtube.com/vi/2oCQdCz0YHI/0.jpg)](https://youtu.be/2oCQdCz0YHI)
-</p>
+
 <hr/>
 
 ## <p align="center"><strong> Project Screenshots </strong>

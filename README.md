@@ -1,6 +1,6 @@
 # VR-Project1
 
-This project is about a web-based VR application that allows you to navigate through a decorated room and interact with select objects. The application is created using HTML, JavaScript and mainly using the AFrame web-framework. This project is accompolished for the purposes of the CS 5331 Virtual Reality Class(Fall 2020) at Texas Tech University.
+This project is about a web-based VR application that allows you to navigate through a decorated room and interact with select objects where it focuses on creating a human scale scene experienced from the **_'inside out'_**. The application is created using HTML, JavaScript and mainly using the AFrame web-framework. This project is accompolished for the purposes of the CS 5331 Virtual Reality Class(Fall 2020) at Texas Tech University.
 
 In this project we show how COVID-19 impacted on your daily lives and the surrounding environment. This project consists of certain interactable objects which helps us to switch between normal to COVID Mode and the other actions as well.
 
@@ -10,14 +10,15 @@ _**A-Frame**_ is a web framework for building virtual reality (VR) experiences. 
 
 A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Daydream, GearVR, Cardboard, Oculus Go, and can even be used for augmented reality. Although A-Frame supports the whole spectrum, A-Frame aims to define fully immersive interactive VR experiences that go beyond basic 360° content, making full use of positional tracking and controllers.
 
-### Resources links
+### Resource links
 
 * [VR Web App](https://vamsidhar12.github.io/VR-Project1/)
-* [Demo Video](https://vamsidhar12.github.io/VR-Project1/)
 * [Source Code](https://github.com/vamsidhar12/VR-Project1/blob/main/index.html)
 * [Assets](https://github.com/vamsidhar12/VR-Project1/tree/main/assets)
-* [libs](https://github.com/vamsidhar12/VR-Project1/tree/main/libs)
-* [images](https://github.com/vamsidhar12/VR-Project1/tree/main/img)
+* [Libs](https://github.com/vamsidhar12/VR-Project1/tree/main/libs)
+* [Object and My Room Images](https://github.com/vamsidhar12/VR-Project1/tree/main/img)
+* [Demo Video](https://youtu.be/2oCQdCz0YHI)
+
 
 ## <p align="center"><strong> Project Screenshots </strong>
 

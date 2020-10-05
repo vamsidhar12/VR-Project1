@@ -60,6 +60,7 @@ A-Frame supports most VR headsets such as Vive, Rift, Windows Mixed Reality, Day
 #### Objects/Models used:
 
 * **Fridge & Trash**
+
   <img src="./img/img1.png"/>
   
 * **Desktop Setup and Chair**
